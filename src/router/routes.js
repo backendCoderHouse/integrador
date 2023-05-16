@@ -3,6 +3,7 @@ const router = express.Router();
 
 import userManager from "../controllers/users.js";
 
+import { uploader } from "../utils.js";
 
 
 router.get("/users/register", (req, res) => { res.render('register') });
@@ -10,16 +11,20 @@ router.get("/users/register", (req, res) => { res.render('register') });
 
 
 
-router.post('/users/register', (req, res) => {
+router.post('/users/register', uploader.single('ProfilePicture'),(req, res) => {
 
-    const { Name, Lastname, Age , ProfilePicture} = req.body;
+    const { Name, Lastname, Age } = req.body;
+    
+    const filename = req.file.filename;
+    
 
-    if (!Name || !Lastname || !Age || !ProfilePicture) return res.status(400).send({ error: "Incomplete values" });
+    if (!Name || !Lastname || !Age || !filename) return res.status(400).send({ error: "Incomplete values" });
 
     let user = {
         Name,
         Lastname,
-        Age
+        Age,
+        ProfilePicture: filename
     }
 
     const UserManager = new userManager();
