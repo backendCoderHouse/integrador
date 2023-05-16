@@ -1,1 +1,24 @@
-<h1> INDEX</h1>
+<div class="container">
+    <h1>Lista de Usuarios</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{users}}
+            {{#each users}}
+            <tr>
+                <td>{{Name}}</td>
+                <td>{{Lastname}}</td>
+                <td>{{Age}}</td>
+                <td><img src="/uploads/{{ProfilePicture}}" alt="Imagen de Usuario" width="50"></td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

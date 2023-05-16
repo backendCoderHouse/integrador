@@ -18,8 +18,8 @@ class UserManager {
 
     async getUsers() {
         try {
-            const users = await usersModel.find({});
-            return { users: users };
+            const users = await usersModel.find({}).lean();
+            return  users ;
         } catch (error) {
             console.error('Error al obtener los usuarios:', error);
             throw error;

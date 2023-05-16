@@ -8,7 +8,8 @@ import __dirname from './utils.js';
 
 import { engine }  from "express-handlebars";
 
-const publics = path.join(__dirname, '../public');
+
+const publics = path.join(__dirname, './public');
 
 const app = express();
 
