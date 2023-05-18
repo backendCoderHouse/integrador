@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-mongoose.connect(`mongodb+srv://cristianrios:CoderHouse2023@coderhouse.z6tbriz.mongodb.net/?retryWrites=true&w=majority`,{
+mongoose.connect(`<your mongo atlas connection uri>`,{
     dbName: 'integrador', 
   });
 
